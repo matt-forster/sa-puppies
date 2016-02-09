@@ -14,6 +14,7 @@
     "web"
   ],
   "scripts": {
+    "start": "node dist",
     "test": "gulp",
     "prepublish": "gulp prepublish"
   },
