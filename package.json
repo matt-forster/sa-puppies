@@ -16,7 +16,7 @@
   "scripts": {
     "start": "node dist",
     "test": "gulp",
-    "install": "gulp prepublish",
+    "build": "gulp build",
     "prepublish": "gulp prepublish"
   },
   "repository": {
