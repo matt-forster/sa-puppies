@@ -10,7 +10,9 @@ var _registry = require('./registry');
 
 var _registry2 = _interopRequireDefault(_registry);
 
-var spacePuppies = new _autovanceApiCore2['default']({});
+var spacePuppies = new _autovanceApiCore2['default']({
+  port: process.env.PORT || 3000
+});
 
 spacePuppies.launch(_registry2['default']);
 spacePuppies.orbit();
