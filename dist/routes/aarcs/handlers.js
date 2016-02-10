@@ -18,7 +18,7 @@ exports['default'] = [function findPuppyList(req, res, next) {
   var _this = this;
 
   // retrieve the cuteness
-  (0, _request2['default'])('http://aarcs.ca/adoptable-dogs/adoptable-puppies/', function (err, response, body) {
+  (0, _request2['default'])('http://aarcs.ca/adoptable-dogs/', function (err, response, body) {
     if (err) {
       res.send(400, err);
       res.end();
@@ -52,8 +52,7 @@ exports['default'] = [function findPuppyList(req, res, next) {
   });
 }, function yoNewPuppies(req, res, next) {
   // beam the cuteness
-  this.modules.yo.all(this.vars.newPuppies).then(function () {
-    return next();
-  });
+  // this.modules.yo.all(this.vars.newPuppies).then(() => next());
+  return next();
 }];
 module.exports = exports['default'];
