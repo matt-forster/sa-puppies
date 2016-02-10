@@ -2,7 +2,7 @@
 import vars from '../../lib/plugins/vars';
 import {expect} from 'chai';
 
-describe('vars plugin', () => {
+describe('vars @plugin', () => {
 
   it('adds the vars object', (done) => {
     let req = {};

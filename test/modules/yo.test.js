@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import {expect} from 'chai';
 import 'sinon-as-promised';
 
-describe('yo', () => {
+describe('yo @module', () => {
   let sandbox;
   let yo;
   let requestStub;

@@ -6,7 +6,7 @@ import {expect} from 'chai';
 import 'sinon-as-promised';
 import redis from 'redis';
 
-describe('puppyCrate', () => {
+describe('puppyCrate @module', () => {
   let sandbox;
   let redisStub;
   let crate;
