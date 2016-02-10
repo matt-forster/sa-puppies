@@ -35,7 +35,7 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var TIMEOUT = 20000;
+var TIMEOUT = 60000;
 
 var Yo = (function () {
   function Yo() {
