@@ -10,6 +10,7 @@ var coveralls = require('gulp-coveralls');
 var babel = require('gulp-babel');
 var del = require('del');
 var isparta = require('isparta');
+var gulpDjsCompile = require('gulp-dogescript');
 
 // Initialize the babel transpiler so ES2015 files gets compiled
 // when they're loaded
@@ -65,14 +66,20 @@ gulp.task('coveralls', ['test'], function () {
     .pipe(coveralls());
 });
 
-gulp.task('babel', ['clean'], function () {
-  return gulp.src('lib/**/*.js')
+gulp.task('doge', ['clean'], function () {
+  return gulp.src('lib/**/*.djs')
+    .pipe(gulpDjsCompile({}))
+    .pipe(gulp.dest('.tmp'));
+})
+
+gulp.task('babel', ['doge', 'clean'], function () {
+  return gulp.src(['lib/**/*.js', '.tmp/**/*.js'])
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', function () {
-  return del('dist');
+  return del(['dist', '.tmp']);
 });
 
 gulp.task('prepublish', ['nsp', 'babel']);
