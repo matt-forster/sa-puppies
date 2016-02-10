@@ -44,6 +44,7 @@ gulp.task('test', ['pre-test'], function (cb) {
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
     .on('error', function (err) {
+      console.log(err);
       mochaErr = err;
     })
     .pipe(istanbul.writeReports())
@@ -77,4 +78,4 @@ gulp.task('clean', function () {
 
 gulp.task('prepublish', ['nsp', 'babel']);
 gulp.task('build', ['prepublish']);
-gulp.task('default', ['static', 'test', 'coveralls']);
+gulp.task('default', ['test', 'coveralls']);
