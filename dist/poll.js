@@ -16,3 +16,7 @@ var self = process.env.SELF_URL;
 (0, _request2['default'])(self + '/find/aarcs/puppies', function (err, reply) {
   console.log(reply.body);
 });
+
+(0, _request2['default'])(self + '/find/arf/dogs', function (err, reply) {
+  console.log(reply.body);
+});

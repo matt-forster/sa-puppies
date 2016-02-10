@@ -30,6 +30,6 @@ exports['default'] = {
     module: new _modulesYo2['default']()
   }],
   plugins: [require('./plugins/vars')],
-  routes: [require('./routes/aarcs')]
+  routes: [require('./routes/aarcs'), require('./routes/arf')]
 };
 module.exports = exports['default'];

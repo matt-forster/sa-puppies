@@ -26,6 +26,10 @@ var _dotenv = require('dotenv');
 
 var _dotenv2 = _interopRequireDefault(_dotenv);
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var puppyCrate = (function () {
   function puppyCrate() {
     var _this = this;
@@ -56,12 +60,13 @@ var puppyCrate = (function () {
 
   _createClass(puppyCrate, [{
     key: 'gatherPuppies',
-    value: function gatherPuppies() {
+    value: function gatherPuppies(key) {
       var _this2 = this;
 
+      if (!key) key = 'puppies';
       var deferred = _when2['default'].defer();
 
-      this.redis.get('puppies', function (err, reply) {
+      this.redis.get(key, function (err, reply) {
         if (!reply) deferred.resolve([]);
         _this2.log.info('Sent the puppies to play!');
         deferred.resolve(JSON.parse(reply));
@@ -73,12 +78,17 @@ var puppyCrate = (function () {
     // addNew
   }, {
     key: 'addNew',
-    value: function addNew(puppies) {
+    value: function addNew(key, puppies) {
       var _this3 = this;
 
+      if (_lodash2['default'].isArray(key)) {
+        puppies = key;
+        key = 'puppies';
+      }
+      if (!key) key = 'puppies';
       var deferred = _when2['default'].defer();
 
-      this.redis.set('puppies', JSON.stringify(puppies), function (err, reply) {
+      this.redis.set(key, JSON.stringify(puppies), function (err, reply) {
         if (err) deferred.reject(err);
         _this3.log.info('Gathered the puppies and put them in the crate!');
         deferred.resolve(reply);
