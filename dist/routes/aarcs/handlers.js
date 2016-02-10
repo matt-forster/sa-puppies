@@ -31,7 +31,7 @@ exports['default'] = [function findPuppyList(req, res, next) {
   var _this2 = this;
 
   // store the cuteness
-  var getKnownPups = this.modules.puppyCrate.gatherPuppies();
+  var getKnownPups = this.modules.puppyCrate.gatherPuppies('aarcs');
 
   var savePups = getKnownPups.then(function (knownPups) {
 
@@ -42,7 +42,7 @@ exports['default'] = [function findPuppyList(req, res, next) {
       }
     }));
 
-    return _this2.modules.puppyCrate.addNew(_this2.vars.puppies);
+    return _this2.modules.puppyCrate.addNew('aarcs', _this2.vars.puppies);
   });
 
   savePups.then(function () {
@@ -52,8 +52,7 @@ exports['default'] = [function findPuppyList(req, res, next) {
   });
 }, function yoNewPuppies(req, res, next) {
   // beam the cuteness
-  this.modules.yo.all(this.vars.newPuppies).then(function () {
-    return next();
-  });
+  // this.modules.yo.all(this.vars.newPuppies).then(() => next());
+  return next();
 }];
 module.exports = exports['default'];

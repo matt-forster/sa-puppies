@@ -68,7 +68,7 @@ var puppyCrate = (function () {
 
       this.redis.get(key, function (err, reply) {
         if (!reply) deferred.resolve([]);
-        _this2.log.info('Sent the puppies to play!');
+        _this2.log.info('Sent the ' + key + ' puppies to play!');
         deferred.resolve(JSON.parse(reply));
       });
 
@@ -90,7 +90,7 @@ var puppyCrate = (function () {
 
       this.redis.set(key, JSON.stringify(puppies), function (err, reply) {
         if (err) deferred.reject(err);
-        _this3.log.info('Gathered the puppies and put them in the crate!');
+        _this3.log.info('Gathered the ' + key + ' puppies and put them in the crate!');
         deferred.resolve(reply);
       });
 
