@@ -1,18 +1,10 @@
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var Shuttle = require('@autovance/api-core');
+var crew = require('./registry');
 
-var _autovanceApiCore = require('@autovance/api-core');
+var port = process.env.PORT || 3000;
+var spacePuppies = new Shuttle({ port: port });
 
-var _autovanceApiCore2 = _interopRequireDefault(_autovanceApiCore);
-
-var _registry = require('./registry');
-
-var _registry2 = _interopRequireDefault(_registry);
-
-var spacePuppies = new _autovanceApiCore2['default']({
-  port: process.env.PORT || 3000
-});
-
-spacePuppies.launch(_registry2['default']);
+spacePuppies.launch(crew);
 spacePuppies.orbit();
