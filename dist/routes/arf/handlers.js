@@ -60,7 +60,8 @@ exports['default'] = [function findPuppyList(req, res, next) {
   });
 }, function yoNewPuppies(req, res, next) {
   // beam the cuteness
-  // this.modules.yo.all(this.vars.newPuppies).then(() => next());
-  return next();
+  this.modules.yo.all(this.vars.newPuppies).then(function () {
+    return next();
+  });
 }];
 module.exports = exports['default'];
